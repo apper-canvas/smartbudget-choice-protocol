@@ -100,7 +100,7 @@ export default function CategoryModal({ category, onClose }) {
               Type *
             </label>
 <Select
-              value={formData.type}
+              value={formData.type || ''}
               onChange={(e) => handleChange('type', e.target.value)}
               options={[
                 { value: 'expense', label: 'Expense' },
