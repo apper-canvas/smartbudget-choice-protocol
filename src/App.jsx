@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import Category from '@/components/pages/Category';
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { useDispatch } from "react-redux";
@@ -131,7 +132,8 @@ function AppContent() {
           <Route index element={<Dashboard />} />
           <Route path="transactions" element={<Transactions />} />
           <Route path="budget" element={<Budget />} />
-          <Route path="goals" element={<Goals />} />
+<Route path="goals" element={<Goals />} />
+          <Route path="categories" element={<Category />} />
 <Route path="reports" element={<Reports />} />
           <Route path="profile" element={<Profile />} />
         </Route>
