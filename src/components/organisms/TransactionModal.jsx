@@ -51,12 +51,15 @@ title_c: "",
       });
     }
   }, [transaction, isOpen]);
-  const loadCategories = async () => {
+const loadCategories = async () => {
     try {
       const data = await categoryService.getAll();
-      setCategories(data);
+      console.log("Loaded categories:", data);
+      setCategories(data || []);
     } catch (error) {
+      console.error("Error loading categories:", error);
       toast.error("Failed to load categories");
+      setCategories([]);
     }
   };
 
@@ -147,12 +150,20 @@ transaction: {
   };
 
 const getFilteredCategories = () => {
-    return categories
+    if (!categories || categories.length === 0) {
+      console.log("No categories available");
+      return [];
+    }
+    
+    const filtered = categories
       .filter(cat => (cat.type_c || cat.type) === formData.type_c)
       .map(cat => ({ 
         value: cat.Id.toString(), 
-        label: cat.Name || cat.name_c || cat.name 
+        label: cat.Name || cat.name_c || cat.name || 'Unnamed Category'
       }));
+    
+    console.log(`Filtered categories for type ${formData.type_c}:`, filtered);
+    return filtered;
   };
 
   return (
