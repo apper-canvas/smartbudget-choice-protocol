@@ -81,12 +81,11 @@ return {
     }
   }
 
-  async create(categoryData) {
+async create(categoryData) {
     try {
       const params = {
         records: [
           {
-            Name: categoryData.name,
             name_c: categoryData.name,
             type_c: categoryData.type,
             color_c: categoryData.color,
