@@ -99,15 +99,17 @@ export default function CategoryModal({ category, onClose }) {
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Type *
             </label>
-            <Select
+<Select
               value={formData.type}
               onChange={(e) => handleChange('type', e.target.value)}
+              options={[
+                { value: 'expense', label: 'Expense' },
+                { value: 'income', label: 'Income' }
+              ]}
+              placeholder="Select category type"
               disabled={loading}
               required
-            >
-              <option value="expense">Expense</option>
-              <option value="income">Income</option>
-            </Select>
+            />
           </div>
 
           <div>
