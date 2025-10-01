@@ -130,11 +130,11 @@ function AppContent() {
         <Route path="/reset-password/:appId/:fields" element={<ResetPassword />} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />} />
-          <Route path="transactions" element={<Transactions />} />
+<Route path="transactions" element={<Transactions />} />
           <Route path="budget" element={<Budget />} />
-<Route path="goals" element={<Goals />} />
+          <Route path="goals" element={<Goals />} />
           <Route path="categories" element={<Category />} />
-<Route path="reports" element={<Reports />} />
+          <Route path="reports" element={<Reports />} />
           <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
