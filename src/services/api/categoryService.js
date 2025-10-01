@@ -28,10 +28,13 @@ class CategoryService {
         throw new Error(response.message);
       }
 
-      return (response.data || []).map(cat => ({
+return (response.data || []).map(cat => ({
         ...cat,
+        Id: cat.Id,
+        Name: cat.Name || cat.name_c,
         name: cat.Name || cat.name_c,
         type: cat.type_c,
+        type_c: cat.type_c,
         color: cat.color_c,
         isDefault: cat.is_default_c
       }));
@@ -62,10 +65,13 @@ class CategoryService {
       }
 
       const cat = response.data;
-      return {
+return {
         ...cat,
+        Id: cat.Id,
+        Name: cat.Name || cat.name_c,
         name: cat.Name || cat.name_c,
         type: cat.type_c,
+        type_c: cat.type_c,
         color: cat.color_c,
         isDefault: cat.is_default_c
       };

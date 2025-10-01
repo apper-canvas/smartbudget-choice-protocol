@@ -155,8 +155,17 @@ const getFilteredCategories = () => {
       return [];
     }
     
+    console.log("All categories:", categories);
+    console.log("Current transaction type:", formData.type_c);
+    
     const filtered = categories
-      .filter(cat => (cat.type_c || cat.type) === formData.type_c)
+      .filter(cat => {
+        // Use the normalized 'type' field from categoryService
+        const categoryType = cat.type;
+        const matches = categoryType === formData.type_c;
+        console.log(`Category "${cat.Name}" (type: ${categoryType}) matches ${formData.type_c}:`, matches);
+        return matches;
+      })
       .map(cat => ({ 
         value: cat.Id.toString(), 
         label: cat.Name || cat.name_c || cat.name || 'Unnamed Category'
